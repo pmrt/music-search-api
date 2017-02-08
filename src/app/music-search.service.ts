@@ -10,7 +10,7 @@ declare var escape: any;
 
 const BASE_URL = 'https://api.spotify.com/v1/search?q=',
       ARTIST_SEARCH = '&type=artist',
-      LIMIT = 10;
+      LIMIT = 20;
 
 @Injectable()
 export class MusicSearchService {
