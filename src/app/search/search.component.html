@@ -1,7 +1,4 @@
 <div class="search-content">
-  <div class="album" *ngFor="let i of processed">
-    div.
-    <img src={{i.img}}/>
-    <p>{{i.name}}</p>
+  <div class="album" [style.background-image]="'url(' + i.img + ')'" *ngFor="let i of processed">
   </div>
 </div>
