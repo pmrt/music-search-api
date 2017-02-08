@@ -1,0 +1,24 @@
+header {
+  position: relative;
+  background: rgba(251,93,88,1);
+  background: -moz-linear-gradient(left, rgba(251,93,88,1) 0%, rgba(222,81,168,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(251,93,88,1)), color-stop(100%, rgba(222,81,168,1)));
+  background: -webkit-linear-gradient(left, rgba(251,93,88,1) 0%, rgba(222,81,168,1) 100%);
+  background: -o-linear-gradient(left, rgba(251,93,88,1) 0%, rgba(222,81,168,1) 100%);
+  background: -ms-linear-gradient(left, rgba(251,93,88,1) 0%, rgba(222,81,168,1) 100%);
+  background: linear-gradient(to right, rgba(251,93,88,1) 0%, rgba(222,81,168,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb5d58', endColorstr='#de51a8', GradientType=1 );
+  height: 200px;
+}
+
+header .content h1 {
+  font-family: Sans-serif;
+  font-size: 100px;
+  color: white;
+}
+
+header .content {
+  position: absolute;
+  bottom: 15%;
+  left: 3%;
+}

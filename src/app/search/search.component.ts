@@ -20,7 +20,9 @@ export class SearchComponent implements OnInit {
       );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.ms.getArtist( 'fran' );
+  }
 
   reset() {
     this.processed = [];
@@ -28,15 +30,21 @@ export class SearchComponent implements OnInit {
 
   getData() {
     this.reset();
-    let item, img, name,
+    let item, img, name, type,
         items = this.results;
     for ( item in items ) {
       name = items[item].name;
+      type = items[item].type;
+      type = this.firstLetterCap( type );
       img = items[item].images.find( image => image ) || {};
       if ( name && img.hasOwnProperty('url') ) {
-        this.processed.push({"name": name, "img": img.url });
+        this.processed.push({"name": name, "img": img.url, "type": type });
       }
     }
+  }
+
+  private firstLetterCap( str ) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
 }

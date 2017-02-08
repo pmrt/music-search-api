@@ -1,15 +1,42 @@
 .search-content {
+  margin: 0 auto;
+  width: 1100px;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
 }
 
 .album {
-
- position: relative;
-  height: 250px;
-  width: 200px;
+  margin: 20px 20px 50px 20px;
+  position: relative;
+  height: 200px;
+  width: 300px;
   max-width: 200px;
   background-size: cover;
+  background-position: center;
+  text-align: center;
+  box-shadow: 1px 3px 10px #e1e1e1;
+  cursor: pointer;
+  transition: all 250ms ease-out;
+}
 
+.album:hover {
+  box-shadow: 1px 1px 30px rgba(51, 51, 51, 0.71);
+}
+
+.album .info {
+  position: absolute;
+  bottom: -25%;
+  left: 0;
+  right: 0;
+
+}
+
+.album .info p {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.album .info .type {
+  color: #e1e1e1;
 }
