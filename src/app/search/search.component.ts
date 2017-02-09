@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
   private toSearch: string;
   private processed = [];
   constructor( private ms: MusicSearchService, private route: ActivatedRoute ) {
-    this.ms.getResults().subscribe(
+    this.ms.getArtistResults().subscribe(
         results => {
             this.results = results;
             this.getData();
@@ -36,25 +36,31 @@ export class SearchComponent implements OnInit {
 
   getData() {
     this.reset();
-    let item, img, name, type,
+    let item, img, name, id, type,
         items = this.results;
+
     for ( item in items ) {
       name = items[item].name;
       type = items[item].type;
+      id = items[item].id;
       type = this.firstLetterCap( type );
       img = items[item].images.find( image => image ) || {};
+
       if ( name && img.hasOwnProperty('url') ) {
-        this.processed.push({"name": name, "img": img.url, "type": type });
+        this.processed.push({"name": name,
+                             "img": img.url,
+                             "type": type,
+                             "id": id });
       }
     }
   }
 
   private search() {
     if ( this.toSearch ) {
-      this.ms.getArtist( this.toSearch );
+      this.ms.getArtists( this.toSearch );
       this.toSearch = '';
     } else {
-      this.ms.getArtist( 'fran' );
+      this.ms.getArtists( 'fran' );
     }
   }
 

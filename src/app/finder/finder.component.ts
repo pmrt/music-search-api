@@ -17,7 +17,7 @@ export class FinderComponent implements OnInit {
   private results: Results;
 
   constructor(private ms: MusicSearchService, private router: Router ) {
-    this.ms.getResults().subscribe(
+    this.ms.getArtistResults().subscribe(
       results => this.results = results
       );
   }
@@ -47,7 +47,7 @@ export class FinderComponent implements OnInit {
   search() {
     if ( !this.isEmpty(this.input) ) {
       this.router.navigate(['/artist', this.input]);
-      //this.ms.getArtist( this.input );
+      //this.ms.getArtists( this.input );
     }
     this.hideSearch();
   }
