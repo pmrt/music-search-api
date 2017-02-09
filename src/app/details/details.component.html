@@ -1,3 +1,7 @@
-<p>
-  details works!
-</p>
+<p *ngIf="artist">{{artist.name}}</p>
+<h1>Top Tracks</h1>
+<p *ngFor='let item of toptracks'> {{item.name}} </p>
+<h1>Albums</h1>
+<h1>Related Artists</h1>
+<h1>Genres</h1>
+<button>Spotify</button>

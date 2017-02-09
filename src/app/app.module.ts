@@ -15,7 +15,8 @@ import { DetailsComponent } from './details/details.component';
 const appRouters: Routes = [
           { path: '', redirectTo: '/explore', pathMatch: 'full'},
           { path: 'explore', component: SearchComponent},
-          { path: 'artist/:name', component: SearchComponent }
+          { path: 'artist/:name', component: SearchComponent },
+          { path: 'artist/:id/details', component: DetailsComponent}
       ]
 
 @NgModule({
