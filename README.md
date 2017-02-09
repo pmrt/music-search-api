@@ -1,4 +1,7 @@
-# MusicSearchApi
+# Swing: MusicSearchApi
+## Demo
+
+You can see the demo [over here](http://mrtz.es/swing).
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
 
