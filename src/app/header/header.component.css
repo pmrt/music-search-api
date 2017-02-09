@@ -15,6 +15,7 @@ header .content h1 {
   font-family: Sans-serif;
   font-size: 100px;
   color: white;
+  cursor: pointer;
 }
 
 header .content {

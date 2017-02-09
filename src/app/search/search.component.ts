@@ -21,18 +21,14 @@ export class SearchComponent implements OnInit {
         }
       );
     this.route.params.subscribe(
-        params => this.toSearch = params['name']
+        params => {
+          this.toSearch = params['name'];
+          this.search();
+        }
       );
   }
 
-  ngOnInit() {
-    if ( this.toSearch ) {
-      this.ms.getArtist( this.toSearch );
-      this.toSearch = '';
-    } else {
-      this.ms.getArtist( 'fran' );
-    }
-  }
+  ngOnInit() {}
 
   reset() {
     this.processed = [];
@@ -50,6 +46,15 @@ export class SearchComponent implements OnInit {
       if ( name && img.hasOwnProperty('url') ) {
         this.processed.push({"name": name, "img": img.url, "type": type });
       }
+    }
+  }
+
+  private search() {
+    if ( this.toSearch ) {
+      this.ms.getArtist( this.toSearch );
+      this.toSearch = '';
+    } else {
+      this.ms.getArtist( 'fran' );
     }
   }
 

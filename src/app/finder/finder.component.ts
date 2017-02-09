@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicSearchService } from '../music-search.service';
 import { Results } from '../definitions';
+import { Router, ActivatedRoute } from '@angular/router';
 
 // Avoid typescript errors
 declare var $:any;
@@ -15,7 +16,7 @@ export class FinderComponent implements OnInit {
   private input: string = '';
   private results: Results;
 
-  constructor(private ms: MusicSearchService ) {
+  constructor(private ms: MusicSearchService, private router: Router ) {
     this.ms.getResults().subscribe(
       results => this.results = results
       );
@@ -45,7 +46,8 @@ export class FinderComponent implements OnInit {
 
   search() {
     if ( !this.isEmpty(this.input) ) {
-      this.ms.getArtist( this.input );
+      this.router.navigate(['/artist', this.input]);
+      //this.ms.getArtist( this.input );
     }
     this.hideSearch();
   }
