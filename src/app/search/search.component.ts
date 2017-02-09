@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicSearchService } from '../music-search.service';
 import { Results } from '../definitions';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -10,18 +11,27 @@ import { Results } from '../definitions';
 export class SearchComponent implements OnInit {
 
   private results: Results;
+  private toSearch: string;
   private processed = [];
-  constructor( private ms: MusicSearchService) {
+  constructor( private ms: MusicSearchService, private route: ActivatedRoute ) {
     this.ms.getResults().subscribe(
         results => {
             this.results = results;
             this.getData();
         }
       );
+    this.route.params.subscribe(
+        params => this.toSearch = params['name']
+      );
   }
 
   ngOnInit() {
-    this.ms.getArtist( 'fran' );
+    if ( this.toSearch ) {
+      this.ms.getArtist( this.toSearch );
+      this.toSearch = '';
+    } else {
+      this.ms.getArtist( 'fran' );
+    }
   }
 
   reset() {
