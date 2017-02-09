@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicSearchService } from '../music-search.service';
 import { ActivatedRoute } from '@angular/router';
+import { preArtist } from '../definitions';
 
 @Component({
   selector: 'app-details',
@@ -8,11 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.component.css']
 })
 
+
+
 export class DetailsComponent implements OnInit {
 
   private id: string;
+  private unproccesedArtist: preArtist;
   private artist: Object;
-  private toptracks: Object;
+  private toptracks: any;
   private albums: Object;
   private related: Object;
   constructor( private ms: MusicSearchService, private route: ActivatedRoute ) {
@@ -23,11 +27,19 @@ export class DetailsComponent implements OnInit {
         );
 
       this.ms.getSingleArtistResults().subscribe(
-          results => this.artist = results
+          results => {
+                        this.unproccesedArtist = results;
+                        this.processArtistInfo( results );
+                     }
         );
 
       this.ms.getTopTracksResults().subscribe(
-          results => this.toptracks = results
+          results => {
+            this.toptracks = results
+            if ( this.toptracks.length > 5 ) {
+              this.toptracks = this.toptracks.splice(0, 5);
+            }
+          }
         );
 
       this.ms.getAlbumsResults().subscribe(
@@ -50,6 +62,18 @@ export class DetailsComponent implements OnInit {
       this.ms.getTopTracks( id );
       this.ms.getAlbums( id );
       this.ms.getRelated( id );
+  }
+
+  processArtistInfo( results ) {
+    var _artist = {},
+        name = results.name,
+        images = results.images,
+        url = results.external_urls.spotify;
+
+    _artist["name"] = name;
+    _artist["image"] = images.find( image => image ).url;
+    _artist["url"] = url;
+    this.artist = _artist;
   }
 
 }
