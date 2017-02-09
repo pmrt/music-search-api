@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { PresearchComponent } from './presearch/presearch.component';
 import { FinderComponent } from './finder/finder.component';
+import { DetailsComponent } from './details/details.component';
 
 const appRouters: Routes = [
           { path: '', redirectTo: '/explore', pathMatch: 'full'},
@@ -23,7 +24,8 @@ const appRouters: Routes = [
     HeaderComponent,
     SearchComponent,
     PresearchComponent,
-    FinderComponent
+    FinderComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
