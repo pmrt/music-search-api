@@ -12,6 +12,8 @@ import { PresearchComponent } from './presearch/presearch.component';
 import { FinderComponent } from './finder/finder.component';
 import { DetailsComponent } from './details/details.component';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 const appRouters: Routes = [
           { path: '', redirectTo: '/explore', pathMatch: 'full'},
           { path: 'explore', component: SearchComponent},
@@ -34,7 +36,7 @@ const appRouters: Routes = [
     HttpModule,
     RouterModule.forRoot( appRouters )
   ],
-  providers: [MusicSearchService],
+  providers: [MusicSearchService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
