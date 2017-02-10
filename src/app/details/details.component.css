@@ -200,6 +200,7 @@ a {
   padding: 5px;
   color: white;
   z-index: 99;
+  background-color: #000;
   border-left: 1px solid white;
   transition: all 0.4ms linear;
 }
