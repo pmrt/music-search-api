@@ -3,7 +3,6 @@
   position: relative;
   width: 1000px;
   margin: 0 auto;
-  height: 1000px;
 }
 
 .image {
@@ -147,4 +146,66 @@ a {
   margin-left: 4%;
   color: #333;
   text-transform: uppercase;
+}
+
+.albums-wrapper {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.album-title {
+  padding: 20px 3%;
+  color: rgba(51, 51, 51, 0.81);
+  text-transform: uppercase;
+  font-family: 'Exo 2';
+}
+
+.album-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border: 4px solid rgba(235,85,137,1);
+}
+
+.album {
+  cursor: pointer;
+  height: 200px;
+  width: 200px;
+  margin-right: 5%;
+  margin-bottom: 6%;
+  box-shadow: 1px 3px 10px #e1e1e1;
+}
+
+.album:hover {
+  box-shadow: 1px 1px 30px rgba(51, 51, 51, 0.71);
+}
+
+.album > p {
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.play {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom:0;
+  padding: 5px;
+  color: white;
+  z-index: 99;
+  border-left: 1px solid white;
+  transition: all 0.4ms linear;
+}
+
+.play:hover {
+  background-color: rgba(251,93,88,1);
+  border: none;
+  color: white;
 }

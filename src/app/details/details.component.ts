@@ -3,13 +3,14 @@ import { MusicSearchService } from '../music-search.service';
 import { ActivatedRoute } from '@angular/router';
 import { preArtist } from '../definitions';
 
+declare var $:any;
+
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-
-
 
 export class DetailsComponent implements OnInit {
 
@@ -17,7 +18,8 @@ export class DetailsComponent implements OnInit {
   private unproccesedArtist: preArtist;
   private artist: Object;
   private toptracks: any;
-  private albums: Object;
+  private unproccesedAlbums: any;
+  private albums: any;
   private unproccesedRelated: any;
   private related: any;
   constructor( private ms: MusicSearchService, private route: ActivatedRoute ) {
@@ -45,13 +47,19 @@ export class DetailsComponent implements OnInit {
         );
 
       this.ms.getAlbumsResults().subscribe(
-          results => this.albums = results
+          results => {
+            this.unproccesedAlbums = results;
+            // if ( this.unproccesedAlbums.length > 5 ) {
+            //   this.unproccesedAlbums = this.unproccesedAlbums.splice(0, 5);
+            // }
+            this.processAlbumInfo( results );
+          }
         );
 
       this.ms.getRelatedResults().subscribe(
           results => {
             this.unproccesedRelated = results
-            if ( this.unproccesedRelated.length > 5 ) {
+            if ( this.unproccesedRelated.length > 4 ) {
               this.unproccesedRelated = this.unproccesedRelated.splice(0, 4);
             }
             this.processRelatedInfo( this.unproccesedRelated );
@@ -103,6 +111,37 @@ export class DetailsComponent implements OnInit {
       _related.push( artist );
     }
     this.related = _related;
+  }
+
+  processAlbumInfo( results ) {
+    var item, url, name, image, images,
+        _albums = [],
+        album = {};
+
+    for ( item in results ) {
+      name = results[item].name;
+      images = results[item].images;
+      url = results[item].external_urls.spotify;
+      image = images.find( image => image );
+      album = {
+        "name": name,
+        "url": url,
+        "image": image ? image.url : 'http://www.bestnannies.ca/templates/ProgressiveView/main/images/img_not_avai.jpg'
+      }
+      _albums.push( album );
+    }
+    this.albums = _albums;
+  }
+
+  play( $event ) {
+    let id = $event.currentTarget.className,
+        music = $('#' + id)[0];
+
+    if ( music.paused ) {
+      music.play();
+    } else {
+      music.pause();
+    }
   }
 
 }
