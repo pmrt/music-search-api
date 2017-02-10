@@ -88,7 +88,7 @@ export class DetailsComponent implements OnInit {
 
     _artist["name"] = name;
     _artist["image"] = images.find( image => image ).url;
-    _artist["url"] = url;
+    _artist["url"] = url ? url : '#';
     this.artist = _artist;
   }
 
