@@ -6,16 +6,32 @@
       <h1 *ngIf="artist">{{artist.name}}</h1>
       <a target="_blank" class="button" *ngIf="artist" [href]="artist.url">Listen on Spotify</a>
     </div>
-    <div class="toptracks">
-      <h1>Popular songs</h1>
-      <div *ngFor='let item of toptracks; let i = index'>
-        <div class="tracknmb">
-              <div class="nmb"><p>{{i+1}}</p></div>
-              <div class="nmb-name"><p>{{item.name}}</p></div>
+    <div class="info-1-wrapper">
+      <div class="toptracks">
+        <h1>Popular songs</h1>
+        <div *ngFor='let item of toptracks; let i = index'>
+          <div class="tracknmb">
+                <div class="nmb"><p>{{i+1}}</p></div>
+                <div class="nmb-name"><p>{{item.name}}</p></div>
+          </div>
         </div>
       </div>
+
+      <div class="related">
+        <h1>Related Artists</h1>
+        <div class="related-wrapper">
+          <div routerLinkActive='active' [routerLink]="['/artist', item.id, 'details']" *ngFor='let item of related' class="related-artist">
+            <div class="related-item" [style.background-image]="'url(' + item.image + ')'" ></div>
+            <p class="related-p">{{item.name}}</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
+
+
+
   <!--<p *ngIf="artist">{{artist.name}}</p>
   <p *ngIf="artist">{{artist.image}}</p>
   <h1>Top Tracks</h1>

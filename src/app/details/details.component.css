@@ -16,12 +16,13 @@
 }
 
 .item + .item {
-  margin-left: 2%;
+  margin-left: 4%;
 }
 
 .info {
   position: relative;
   width: 60%;
+  margin-left: 4px;
 }
 
 .info > h1 {
@@ -33,7 +34,7 @@
 .back {
   cursor: pointer;
   position: absolute;
-  left: 5%;
+  left: 4%;
   font-size: 14px;
   padding: 15px 10px;
   transform: scale(6);
@@ -44,9 +45,21 @@ a {
   color: #333;
 }
 
-.toptracks {
+.info-1-wrapper {
   position: relative;
-  top: 0.5%;
+  top: 3vh;
+}
+
+.info-1-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.related > h1 {
+  margin-bottom: 10px;
+  color: rgba(51, 51, 51, 0.81);
+  text-transform: uppercase;
+  font-family: 'Exo 2'
 }
 
 .toptracks > h1 {
@@ -111,4 +124,27 @@ a {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.related-artist {
+  cursor: pointer;
+  display: flex;
+  padding: 1px 10px;
+}
+
+.related-item {
+  border: 2px solid rgba(251,93,88,1);
+  border-radius: 50%;
+  background-size: cover;
+  position: relative;
+  height: 60px;
+  width: 60px;
+}
+
+.related-artist p {
+  padding-top: 5%;
+  font-family: sans-serif;
+  margin-left: 4%;
+  color: #333;
+  text-transform: uppercase;
 }
