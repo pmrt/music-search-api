@@ -13,8 +13,8 @@
           <div class="tracknmb">
                 <div class="nmb"><p>{{i+1}}</p></div>
                 <div class="nmb-name"><p>{{item.name}}</p>
-                  <div class="play">
-                    <div [class]='item.id' (click)="play($event)">&#9658;</div>
+                  <div [class]='item.id + " play"' (click)="play($event)">
+                    <div>&#9658;</div>
                     <video width=0 height=0 [id]='item.id'><source [src]='item.preview_url' type="audio/mpeg"></video>
                    </div>
                 </div>

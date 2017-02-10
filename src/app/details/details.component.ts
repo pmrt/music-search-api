@@ -134,7 +134,7 @@ export class DetailsComponent implements OnInit {
   }
 
   play( $event ) {
-    let id = $event.currentTarget.className,
+    let id = $event.currentTarget.className.split(' ')[0],
         music = $('#' + id)[0];
 
     if ( music.paused ) {
