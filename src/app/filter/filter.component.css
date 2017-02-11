@@ -5,7 +5,7 @@
 
 p {
   cursor: pointer;
-  padding: 10px;
+  padding: 5px;
   margin-right: 35px;
   color: #ccc;
   font-size: 14px;
@@ -21,6 +21,7 @@ p:hover {
 .btn {
   background: rgb(46, 138, 247);
   color: #fff;
+
 }
 
 .btn:hover {

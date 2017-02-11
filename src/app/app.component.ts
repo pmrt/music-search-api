@@ -17,7 +17,7 @@ export class AppComponent {
   ngOnInit() {}
 
   routeInterception( event ) {
-    this.showFilter = event.url == "/explore" ? true : false;
+    this.showFilter = event.url.search("details") != -1 ? false : true;
   }
 
 }
