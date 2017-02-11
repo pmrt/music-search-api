@@ -1,0 +1,28 @@
+.filter-wrapper {
+  padding-top: 58px;
+  display: flex;
+}
+
+p {
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 35px;
+  color: #ccc;
+  font-size: 14px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+
+p:hover {
+  transition: all 0.2s ease-out;
+  color: #333;
+}
+
+.btn {
+  background: rgb(46, 138, 247);
+  color: #fff;
+}
+
+.btn:hover {
+  color: #fff;
+}

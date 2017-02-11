@@ -1,11 +1,11 @@
 .search-header {
   position: relative;
-  left: 30%;
+  left: 3%;
 }
 
 .search-header h1 {
   padding-top: 50px;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
   font-family: 'Exo 2', sans-serif;
   font-size: 42px;
   color: #333;

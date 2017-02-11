@@ -1,4 +1,6 @@
-<a class="back" routerLink='/explore'>&lt;</a>
+<div class="back">
+  <a routerLink='/explore'>&lt;</a>
+</div>
 <div class="details-wrapper">
   <div *ngIf="artist" [style.background-image]="'url(' + artist.image + ')'" class="image item"></div>
   <div class="info item">

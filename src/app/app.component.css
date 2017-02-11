@@ -3,3 +3,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.item-1 {
+  position: relative;
+  flex-grow: 1;
+}

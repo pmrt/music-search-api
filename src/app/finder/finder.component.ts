@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MusicSearchService } from '../music-search.service';
+import { MusicSearchService } from '../shared/music-search.service';
 import { Results } from '../definitions';
 import { Router, ActivatedRoute } from '@angular/router';
 

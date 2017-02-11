@@ -1,7 +1,8 @@
 <div class="search-content">
-  <div [routerLink]="['/artist', i.id, 'details']" class="album" [style.background-image]="'url(' + i.img + ')'" *ngFor="let i of processed">
+  <div [routerLink]="['/artist', i.id, 'details']" class="album" [style.background-image]="'url(' + i.img + ')'"
+  *ngFor="let i of (processed | meta:pipe)">
     <div class="info">
-      <p> {{i.name}} </p>
+      <p> {{i.name}}</p>
       <p class="type"> {{i.type}} </p>
     </div>
   </div>
