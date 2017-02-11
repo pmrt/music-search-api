@@ -20,6 +20,7 @@ import { DefaultPipe } from './pipes/default.pipe';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FilterComponent } from './filter/filter.component';
+import { FooterComponent } from './footer/footer.component';
 
 const appRouters: Routes = [
           { path: '', redirectTo: '/explore', pathMatch: 'full'},
@@ -40,7 +41,8 @@ const appRouters: Routes = [
     NamePipe,
     MetaPipe,
     DefaultPipe,
-    FilterComponent
+    FilterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

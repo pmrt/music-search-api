@@ -1,4 +1,5 @@
 .search-content {
+  position: relative;
   margin: 0% 4%;
   display: flex;
   justify-content: center;

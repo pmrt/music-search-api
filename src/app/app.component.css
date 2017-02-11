@@ -8,3 +8,9 @@
   position: relative;
   flex-grow: 1;
 }
+
+.content {
+  z-index: 99;
+  background: #fafafa;
+  margin-bottom: 90px;
+}

@@ -1,4 +1,4 @@
-<div class="search-content">
+<div class="search-content fixed-footer">
   <div [routerLink]="['/artist', i.id, 'details']" class="album" [style.background-image]="'url(' + i.img + ')'"
   *ngFor="let i of (processed | meta:pipe)">
     <div class="info">
