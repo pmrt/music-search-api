@@ -20,11 +20,13 @@ export class SearchComponent implements OnInit {
   private lastSearch: string;
   private processed = [];
   private pipe = DefaultPipe;
+  private loading = false;
   constructor( private ms: MusicSearchService, private route: ActivatedRoute, private fs: FilterService, private bs: BreadcrumbService ) {
     this.ms.getArtistResults().subscribe(
         results => {
             this.results = results;
             this.getData();
+            this.loading = false;
         }
       );
     this.route.params.subscribe(
@@ -77,6 +79,7 @@ export class SearchComponent implements OnInit {
   }
 
   private search() {
+    this.loading = true;
     if ( this.toSearch ) {
       this.ms.getArtists( this.toSearch );
       this.lastSearch = this.toSearch;
