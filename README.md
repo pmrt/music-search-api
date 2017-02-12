@@ -1,7 +1,4 @@
-# Swing: MusicSearchApi
-## Demo
-
-You can see the demo [over here](http://mrtz.es/swing).
+# Swing: Music search api example
 
 ## Features:
 
@@ -19,6 +16,13 @@ You can see the demo [over here](http://mrtz.es/swing).
 - Ajax
 
 ## Directory structure
-- Shared. Holds all the services we're using ( MusicSearchService, FilterService, BreadcrumService,)
+- Shared. Holds all the services we're using ( MusicSearchService, FilterService, BreadcrumService)
 - Pipes. Contains the required pipes (DefaultPipe, MetaPipe, NamePipe, PopularityPipe)
 - Definitions. Holds some interfaces definitions.
+
+---
+
+## Demo
+
+You can see the demo [over here](http://mrtz.es/swing).
+
