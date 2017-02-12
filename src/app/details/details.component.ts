@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MusicSearchService } from '../shared/music-search.service';
 import { ActivatedRoute } from '@angular/router';
+import { BreadcrumbService } from '../shared/breadcrumb.service';
+
 import { preArtist } from '../definitions';
 
 declare var $:any;
@@ -16,24 +19,24 @@ export class DetailsComponent implements OnInit {
 
   private id: string;
   private unproccesedArtist: preArtist;
-  private artist: Object;
+  private artist: any;
   private toptracks: any;
   private unproccesedAlbums: any;
   private albums: any;
   private unproccesedRelated: any;
   private related: any;
-  constructor( private ms: MusicSearchService, private route: ActivatedRoute ) {
+  constructor( private ms: MusicSearchService, private bs: BreadcrumbService, private route: ActivatedRoute ) {
       this.route.params.subscribe(
           params => {
             this.id = params['id'];
             this.search();
           }
         );
-
       this.ms.getSingleArtistResults().subscribe(
           results => {
                         this.unproccesedArtist = results;
                         this.processArtistInfo( results );
+                        this.bs.setLevel( 2, this.artist.name );
                      }
         );
 
@@ -65,7 +68,6 @@ export class DetailsComponent implements OnInit {
             this.processRelatedInfo( this.unproccesedRelated );
           }
         );
-
   }
 
   ngOnInit() {

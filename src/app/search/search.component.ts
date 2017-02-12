@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { MusicSearchService } from '../shared/music-search.service';
 import { FilterService } from '../shared/filter.service';
+import { BreadcrumbService } from '../shared/breadcrumb.service';
 
 import { DefaultPipe } from '../pipes/default.pipe';
 import { Results } from '../definitions';
@@ -19,7 +20,7 @@ export class SearchComponent implements OnInit {
   private lastSearch: string;
   private processed = [];
   private pipe = DefaultPipe;
-  constructor( private ms: MusicSearchService, private route: ActivatedRoute, private fs: FilterService ) {
+  constructor( private ms: MusicSearchService, private route: ActivatedRoute, private fs: FilterService, private bs: BreadcrumbService ) {
     this.ms.getArtistResults().subscribe(
         results => {
             this.results = results;
@@ -43,6 +44,7 @@ export class SearchComponent implements OnInit {
           }
         }
       );
+    this.bs.setLevel(2, '' );
   }
 
   ngOnInit() {}

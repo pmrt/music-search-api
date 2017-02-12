@@ -1,4 +1,13 @@
 <div class="search-content fixed-footer">
+  <div *ngIf="loading" class="loading-animation">
+      <div class="cssload-thecube">
+        <div class="cssload-cube cssload-c1"></div>
+        <div class="cssload-cube cssload-c2"></div>
+        <div class="cssload-cube cssload-c4"></div>
+        <div class="cssload-cube cssload-c3"></div>
+      </div>
+  </div>
+
   <div [routerLink]="['/artist', i.id, 'details']" class="album" [style.background-image]="'url(' + i.img + ')'"
   *ngFor="let i of (processed | meta:pipe)">
     <div class="info">

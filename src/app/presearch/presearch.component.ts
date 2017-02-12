@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from '../shared/breadcrumb.service';
 
 @Component({
   selector: 'app-presearch',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PresearchComponent implements OnInit {
 
-  constructor() { }
+  private levels;
+  constructor( private bs: BreadcrumbService) {
+    this.bs.getLevels().subscribe(
+        levels => this.levels = levels
+      );
+    this.bs.setLevel( 1, 'Artists' );
+  }
 
   ngOnInit() {
   }

@@ -4,9 +4,26 @@
 }
 
 .search-header h1 {
-  padding-top: 50px;
+  padding-top: 40px;
   padding-bottom: 15px;
   font-family: 'Exo 2', sans-serif;
   font-size: 42px;
   color: #333;
+}
+
+.lvl-wrapper {
+  display: flex;
+}
+
+.lvl-wrapper h1 {
+  margin-right: 20px;
+}
+
+.lvl-wrapper h1:nth-child(2) {
+    color: #ccc !important;
+    text-transform: lowercase;
+    font-family: sans-serif !important;
+    font-size: 30px !important;
+    padding-top: 52px !important;
+    letter-spacing: -2px;
 }

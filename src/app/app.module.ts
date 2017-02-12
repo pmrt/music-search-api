@@ -5,8 +5,11 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+
 import { MusicSearchService } from './shared/music-search.service';
 import { FilterService } from './shared/filter.service';
+import { BreadcrumbService } from './shared/breadcrumb.service';
+
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { PresearchComponent } from './presearch/presearch.component';
@@ -53,6 +56,7 @@ const appRouters: Routes = [
   providers: [
     MusicSearchService,
     FilterService,
+    BreadcrumbService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
