@@ -24,12 +24,14 @@ import { DefaultPipe } from './pipes/default.pipe';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FilterComponent } from './filter/filter.component';
 import { FooterComponent } from './footer/footer.component';
+import { ErrorComponent } from './error/error.component';
 
 const appRouters: Routes = [
           { path: '', redirectTo: '/explore', pathMatch: 'full'},
           { path: 'explore', component: SearchComponent},
           { path: 'artist/:name', component: SearchComponent },
-          { path: 'artist/:id/details', component: DetailsComponent}
+          { path: 'artist/:id/details', component: DetailsComponent},
+          { path: '**', component: ErrorComponent, pathMatch: 'full'}
       ]
 
 @NgModule({
@@ -45,7 +47,8 @@ const appRouters: Routes = [
     MetaPipe,
     DefaultPipe,
     FilterComponent,
-    FooterComponent
+    FooterComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
