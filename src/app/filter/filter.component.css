@@ -5,8 +5,9 @@
 
 p {
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
   margin-right: 35px;
+  letter-spacing: 1.2px;
   color: #ccc;
   font-size: 14px;
   font-family: sans-serif;
@@ -21,6 +22,7 @@ p:hover {
 .btn {
   background: rgb(46, 138, 247);
   color: #fff;
+  border-radius: 4px;
 
 }
 
